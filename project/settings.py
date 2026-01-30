@@ -31,9 +31,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["*"]
+    #["127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -85,6 +86,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 config = dotenv_values(".env")
 DEBUG = config.get("DEBUG", "False") == "True"
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -94,16 +96,16 @@ DATABASES = {
         'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT', '3306')           
     }
-}
+} 
 '''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config['MYSQLDATABASE'],
-        'USER': config['MYSQLUSER'],
-        'PASSWORD': config['MYSQLPASSWORD'],
-        'HOST': config['MYSQLHOST'],
-        'PORT': config['MYSQLPORT']           
+        'NAME': os.getenv('MYSQLDATABASE'),
+        'USER': os.getenv('MYSQLUSER'),
+        'PASSWORD': os.getenv('MYSQLPASSWORD'),
+        'HOST': os.getenv('MYSQLHOST'),
+        'PORT': os.getenv('MYSQLPORT'),           
     }
 } '''
 
