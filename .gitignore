@@ -1,6 +1,5 @@
 .env
-.Env.V 
-.env.a 
+.Env* 
 .venv
 venv
 .venv/

@@ -9,14 +9,18 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
+#import pymysql
+#pymysql.install_as_MySQLdb()
 
 from pathlib import Path
-import os
 from dotenv import load_dotenv, dotenv_values
 from decouple import config 
+import os
+
 
 
 load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
