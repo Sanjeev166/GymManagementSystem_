@@ -15,6 +15,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv, dotenv_values
 from decouple import config 
+import dj_database_url
 import os
 
 
@@ -89,29 +90,22 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 config = dotenv_values(".env")
 DEBUG = config.get("DEBUG", "False") == "True"
+#USE_RAILWAY_DB=os.getenv("USE_RAILWAY_DB", "False")=="True"
 
-
+ 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '3306')           
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': os.getenv('DB_NAME'),
+       'USER': os.getenv('DB_USER'),
+       'PASSWORD': os.getenv('DB_PASSWORD'),
+       'HOST': os.getenv('DB_HOST', 'localhost'),
+       'PORT': os.getenv('DB_PORT'),           
     }
 } 
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('MYSQLDATABASE'),
-        'USER': os.getenv('MYSQLUSER'),
-        'PASSWORD': os.getenv('MYSQLPASSWORD'),
-        'HOST': os.getenv('MYSQLHOST'),
-        'PORT': os.getenv('MYSQLPORT'),           
-    }
-} '''
+
+
+
 
 
 # Password validation
